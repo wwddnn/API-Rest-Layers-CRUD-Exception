@@ -37,4 +37,10 @@ public class ProductController {
         return ResponseEntity.created(uri).body(dto); //codigo 201
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto) {
+        dto =  service.update(id, dto);
+        return ResponseEntity.ok(dto); //codigo 200
+    }
+    
 }

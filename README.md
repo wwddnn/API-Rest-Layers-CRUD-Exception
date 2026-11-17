@@ -29,3 +29,11 @@ O objetivo principal é documentar:
 * GitHub: @wwddnn
 
 * Email: warleydias@gmail.com
+
+## 🖨️ Prints do projeto
+Documentação da API REST:
+* Utilizar Swagger OpenAPI Springdoc 3.0.0 dentro do arquivo pom.xml para gerar documentação dos métodos da API REST.
+* Inserir anotações do Spring, como: @Tag  @Operation dentro do ProductController para nomear o Controller e também o que cada método http realiza.
+* Na página do navegador cole o link http://localhost:8080/swagger-ui/index.html#/ para visualizar a tela abaixo
+<img width="1911" height="1005" alt="image" src="https://github.com/user-attachments/assets/fd8a1339-16a9-418f-a631-96b7afe0a6c3" />
+

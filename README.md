@@ -35,6 +35,7 @@ Documentação da API REST:
 * Utilizar Swagger OpenAPI Springdoc 3.0.0 dentro do arquivo pom.xml para gerar documentação dos métodos da API REST.
 * Inserir anotações do Spring, como: @Tag  @Operation dentro do ProductController para nomear o Controller e também o que cada método http realiza.
 * Na página do navegador cole o link http://localhost:8080/swagger-ui/index.html#/ para visualizar a tela abaixo
+* Inserir anotação @Schema na classe ProductDTO e nos campos para identificar a descrição de cada campo dentro do swagger OpenAPI.
 <img width="1911" height="1005" alt="image" src="https://github.com/user-attachments/assets/fd8a1339-16a9-418f-a631-96b7afe0a6c3" />
 <img width="1912" height="905" alt="image" src="https://github.com/user-attachments/assets/a30763b4-a873-460d-8ac4-03f62811467c" />
 

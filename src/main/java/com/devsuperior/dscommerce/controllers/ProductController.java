@@ -2,6 +2,8 @@ package com.devsuperior.dscommerce.controllers;
 
 import com.devsuperior.dscommerce.dto.ProductDTO;
 import com.devsuperior.dscommerce.services.ProductService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,23 +15,27 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/products")
+@Tag(name = "Produtos", description = "Endpoints para o gerenciamento do catálogo de produtos")
 public class ProductController {
 
     @Autowired
     private ProductService service;
 
+    @Operation(summary = "Retornar o produto conforme o número do id") //openAPI documentation
     @GetMapping(value = "/{id}")
     public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
         ProductDTO dto =  service.findById(id);
         return ResponseEntity.ok(dto); //codigo 200
     }
 
+    @Operation(summary = "Listar todos os produtos de forma paginada") //openAPI documentation
     @GetMapping
     public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable) {
         Page<ProductDTO> dto = service.findAll(pageable);
         return ResponseEntity.ok(dto); //codigo 200
     }
 
+    @Operation(summary = "Inserir um novo produto") //openAPI documentation
     @PostMapping
     public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO dto) {
         dto = service.insert(dto);
@@ -37,12 +43,14 @@ public class ProductController {
         return ResponseEntity.created(uri).body(dto); //codigo 201
     }
 
+    @Operation(summary = "Atualizar o produto conforme o número do id") //openAPI documentation
     @PutMapping(value = "/{id}")
     public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto) {
         dto =  service.update(id, dto);
         return ResponseEntity.ok(dto); //codigo 200
     }
 
+    @Operation(summary = "Deletar o produto conforme o número do id") //openAPI documentation
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
